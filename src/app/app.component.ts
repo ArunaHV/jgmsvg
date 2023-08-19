@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
-import { CourseAddEditComponent } from './course-add-edit/course-add-edit.component';
+
 
 @Component({
   selector: 'app-root',
@@ -10,9 +9,6 @@ import { CourseAddEditComponent } from './course-add-edit/course-add-edit.compon
 export class AppComponent {
   title = 'angular-navbar';
 
-  constructor(private _dialog: MatDialog) {}
-
-  openAddEditCourseForm() {
-    this._dialog.open(CourseAddEditComponent);
-  }
+ 
+ 
 }
