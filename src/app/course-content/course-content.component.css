@@ -1,0 +1,18 @@
+.course-content-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: left;
+    justify-content: left;  
+  }
+  .course-content-col {
+    max-width: 100%;
+    margin-bottom: 8px;
+    justify-content: left;
+    align-items: Center;
+    max-width: 400px;
+    margin-top: 2%;
+    margin-left: 8% 
+  }
+  
+  

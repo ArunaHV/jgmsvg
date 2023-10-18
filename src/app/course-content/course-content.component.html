@@ -1,0 +1,32 @@
+<div class="course-content-container">
+    <table >
+        <tr>
+            <div class="course-content-col">
+                <td>
+                    <mat-form-field >
+                        <mat-label>Language</mat-label>
+                        <mat-select>
+                            <mat-option *ngFor="let language of languageData" [value]="language.id"> {{language.name}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </td>
+                <td>
+                    <mat-form-field>
+                        <mat-label>Sarga</mat-label>
+                        <mat-select (selectionChange)="onSargaChange($event)">
+                            <mat-option *ngFor="let sarga of sargaData" [value]="sarga.id"> {{sarga.name}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </td>
+                <td>
+                    <mat-form-field >
+                        <mat-label>Shloka</mat-label>
+                        <mat-select>
+                            <mat-option *ngFor="let shloka of shlokaData" [value]="shloka.Number"> {{shloka.Number}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </td>
+            </div>
+        </tr>
+    </table>
+</div>

@@ -15,16 +15,26 @@ import { CourseComponent } from './course/course.component';
 import { FlexLayoutModule } from "@angular/flex-layout";
 import {MatTableModule} from '@angular/material/table';
 import { CourseAddEditComponent } from './course-add-edit/course-add-edit.component';
-import {MatDialogModule} from '@angular/material/dialog'
-
-
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatSelectModule} from '@angular/material/select';
+import {MatInputModule} from '@angular/material/input';
+import {FormsModule} from '@angular/forms';
+import {NgFor} from '@angular/common';
+import {MatListModule} from '@angular/material/list';
+import { ReactiveFormsModule } from '@angular/forms';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import { CourseContentComponent } from './course-content/course-content.component';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     AboutComponent,
     CourseComponent,
-    CourseAddEditComponent
+    CourseAddEditComponent,
+    CourseContentComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -36,7 +46,17 @@ import {MatDialogModule} from '@angular/material/dialog'
     MatMenuModule,
     MatCardModule,
     MatTableModule,
-    MatDialogModule
+    MatDialogModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatInputModule,
+    MatListModule,
+    FormsModule,
+    NgFor,
+    ReactiveFormsModule,
+    MatSidenavModule,
+    HttpClientModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
