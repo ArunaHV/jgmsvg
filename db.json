@@ -1,0 +1,120 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+
+  "language":[
+    {
+      "name": "Kannada",
+      "id": 1
+    },
+    {
+      "name": "English",
+      "id": 2
+    },
+    {
+      "name": "Hindi",
+      "id": 3
+    },
+    {
+      "name": "Telugu",
+      "id": 4
+    }
+  ],
+
+  "sarga":[
+    {
+      "name": "Sarga1",
+      "id": 1
+    },
+    {
+      "name": "Sarga2",
+      "id": 2
+    },
+    {
+      "name": "Sarga3",
+      "id": 3
+    },
+    {
+      "name": "Sarga4",
+      "id": 4
+    }
+  ],
+   
+  "shloka":[
+    {
+      "id": 1,
+      "sargaId": 1,
+      "shlokacontent" : "/src/assets/Madvijaya/Sarga1/Shloka1.png",
+      "shlokaaudio" : "/src/assets/Madvijaya/Sarga1/Shloka1.mp3"
+    },
+    {
+      "id": 2,
+      "sargaId": 1,
+      "shlokacontent" : "/src/assets/Madvijaya/Sarga1/Shloka2.png",
+      "shlokaaudio" : "/src/assets/Madvijaya/Sarga1/Shloka2.mp3"
+    },
+    {
+      "id": 3,
+      "sargaId": 1,
+      "shlokacontent" : "/src/assets/Madvijaya/Sarga1/Shloka3.png",
+      "shlokaaudio" : "/src/assets/Madvijaya/Sarga1/Shloka3.mp3"
+    },
+    {
+      "id": 4,
+      "sargaId": 1,
+      "shlokacontent" : "/src/assets/Madvijaya/Sarga1/Shloka4.png",
+      "shlokaaudio" : "/src/assets/Madvijaya/Sarga1/Shloka4.mp3"
+    },
+    {
+      "id": 5,
+      "sargaId": 1,
+      "shlokacontent" : "/src/assets/Madvijaya/Sarga1/Shloka5.png",
+      "shlokaaudio" : "/src/assets/Madvijaya/Sarga1/Shloka5.mp3"
+    },
+    {
+      "id": 1,
+      "sargaId": 2,
+      "shlokacontent" : "/src/assets/Madvijaya/Sarga2/Shloka1.png",
+      "shlokaaudio" : "/src/assets/Madvijaya/Sarga2/Shloka1.mp3"
+    },
+    {
+      "id": 2,
+      "sargaId": 2,
+      "shlokacontent" : "/src/assets/Madvijaya/Sarga2/Shloka1.png",
+      "shlokaaudio" : "/src/assets/Madvijaya/Sarga2/Shloka1.mp3"
+    },
+    {
+      "id": 3,
+      "sargaId": 2,
+      "shlokacontent" : "/src/assets/Madvijaya/Sarga2/Shloka1.png",
+      "shlokaaudio" : "/src/assets/Madvijaya/Sarga2/Shloka1.mp3"
+    },
+    {
+      "id": 4,
+      "sargaId": 2,
+      "shlokacontent" : "/src/assets/Madvijaya/Sarga2/Shloka1.png",
+      "shlokaaudio" : "/src/assets/Madvijaya/Sarga2/Shloka1.mp3"
+    },
+    {
+      "id": 5,
+      "sargaId": 2,
+      "shlokacontent" : "/src/assets/Madvijaya/Sarga2/Shloka1.png",
+      "shlokaaudio" : "/src/assets/Madvijaya/Sarga2/Shloka1.mp3"
+    }
+  ]
+}

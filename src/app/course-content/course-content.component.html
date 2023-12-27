@@ -1,0 +1,188 @@
+<div class="course-content-col">
+    <mat-drawer-container class="example-container" autosize>
+        <table>
+            <tr>
+                <td>
+                    <mat-form-field>
+                        <mat-label>Language</mat-label>
+                        <mat-select>
+                            <mat-option *ngFor="let language of languageData" [value]="language.id">
+                                {{language.name}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </td>
+                <td>
+                    <mat-form-field>
+                        <mat-label>Sarga</mat-label>
+                        <mat-select (selectionChange)="onSargaChange($event)">
+                            <mat-option *ngFor="let sarga of sargaData" [value]="sarga.id"> {{sarga.name}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </td>
+                <td>
+                    <mat-form-field>
+                        <mat-label>Shloka</mat-label>
+                        <mat-select>
+                            <mat-option *ngFor="let shloka of shlokaData" [value]="shloka.Number">
+                                {{shloka.Number}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <mat-label>Shloka Content</mat-label>
+                </td>
+                <td>
+                    <audio controls style="width: 100%;">
+                        <source src="../../assets/audio/sarga 1.mp3" type="audio/ogg">
+                        <!-- <source src="./audio/horse.ogg" type="audio/mpeg"> -->
+                        Your browser does not support the audio element.
+                    </audio>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <mat-label>Pada1</mat-label>
+                </td>
+                <td>
+                    <mat-label>kanthaya kalyaNa guNaikadhamne</mat-label>
+                </td>
+                <td>
+                    <audio controls style="width: 100%;">
+                        <source src="../../assets/audio/sarga 1.mp3" type="audio/ogg">
+                        <!-- <source src="./audio/horse.ogg" type="audio/mpeg"> -->
+                        Your browser does not support the audio element.
+                    </audio>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <mat-label>Pada2</mat-label>
+                </td>
+                <td>
+                    <mat-label>navadhyunaatha prathimaprabhaaya</mat-label>
+                </td>
+                <td>
+                    <audio controls style="width: 100%;">
+                        <source src="../../assets/audio/sarga 1.mp3" type="audio/ogg">
+                        <!-- <source src="./audio/horse.ogg" type="audio/mpeg"> -->
+                        Your browser does not support the audio element.
+                    </audio>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <mat-label>Pada3</mat-label>
+                </td>
+                <td>
+                    <mat-label>narayaNaya akhila karaNaya</mat-label>
+                </td>
+                <td>
+                    <audio controls style="width: 100%;">
+                        <source src="../../assets/audio/sarga 1.mp3" type="audio/ogg">
+                        <!-- <source src="./audio/horse.ogg" type="audio/mpeg"> -->
+                        Your browser does not support the audio element.
+                    </audio>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <mat-label>Pada4</mat-label>
+                </td>
+                <td>
+                    <mat-label>shri praaNa naathaya namaskaromi </mat-label>
+                </td>
+                <td>
+                    <audio controls style="width: 100%;">
+                        <source src="../../assets/audio/sarga 1.mp3" type="audio/ogg">
+                        <!-- <source src="./audio/horse.ogg" type="audio/mpeg"> -->
+                        Your browser does not support the audio element.
+                    </audio>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <mat-label><b>Pada cheda</b></mat-label>
+                </td>
+            </tr>
+            <tr>
+
+                <mat-drawer #P1 class="example-sidenav" mode="side" position="end">
+                    <p>Auto-resizing sidenav P1</p>
+                    <!-- @if (showFiller) {
+                    <p>Lorem, ipsum dolor sit amet consectetur.</p>
+                  }
+                  <button (click)="showFiller = !showFiller" mat-raised-button>
+                    Toggle extra text
+                  </button> -->
+                </mat-drawer>
+                <div class="example-sidenav-content">
+                    <td>
+                        <mat-label style="cursor:pointer" (click)="P1.toggle()">P1</mat-label>
+                    </td>
+                </div>
+            </tr>
+
+            <tr>
+
+                <mat-drawer #P2 class="example-sidenav" mode="side" position="end">
+                    <p>Auto-resizing sidenav P2</p>
+                    <!-- @if (showFiller) {
+                <p>Lorem, ipsum dolor sit amet consectetur.</p>
+              }
+              <button (click)="showFiller = !showFiller" mat-raised-button>
+                Toggle extra text
+              </button> -->
+              <button mat-raised-button>
+                Toggle extra text
+              </button>
+                </mat-drawer>
+                <div class="example-sidenav-content">
+                    <td>
+                        <mat-label style="cursor:pointer" (click)="P2.toggle()">P2</mat-label>
+                    </td>
+                </div>
+            </tr>
+            <tr>
+
+                <mat-drawer #P3 class="example-sidenav" mode="side" position="end">
+                    <p>Auto-resizing sidenav P3</p>
+                    <!-- @if (showFiller) {
+            <p>Lorem, ipsum dolor sit amet consectetur.</p>
+          }
+          <button (click)="showFiller = !showFiller" mat-raised-button>
+            Toggle extra text
+          </button> -->
+                </mat-drawer>
+                <div class="example-sidenav-content">
+                    <td>
+                        <mat-label style="cursor:pointer" (click)="P3.toggle()">P3</mat-label>
+                    </td>
+                </div>
+            </tr>
+            <tr>
+
+                <mat-drawer #P4 class="example-sidenav" mode="side" position="end">
+                    <p>Auto-resizing P4</p>
+                    <!-- @if (showFiller) {
+        <p>Lorem, ipsum dolor sit amet consectetur.</p>
+      }
+      <button (click)="showFiller = !showFiller" mat-raised-button>
+        Toggle extra text
+      </button> -->
+                </mat-drawer>
+                <div class="example-sidenav-content">
+                    <td>
+                        <mat-label style="cursor:pointer" (click)="P4.toggle()">P4</mat-label>
+                    </td>
+                </div>
+            </tr>
+            <tr>
+                <td>
+                    <mat-label><b>Pada artha</b></mat-label>
+                </td>
+            </tr>
+        </table>
+    </mat-drawer-container>
+</div>

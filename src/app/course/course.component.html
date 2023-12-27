@@ -1,0 +1,28 @@
+<!-- Cards with media area -->
+
+<div class="add-course-class">
+  <button mat-raised-button (click) = "openAddEditCourseForm()" color="primary" >Add Course</button>
+</div>
+<div class="card-container">
+  <div *ngFor="let course of courseDataSource">
+    <mat-card class="course-card">
+      <mat-card-header>
+        <mat-card-title-group>
+          <mat-card-title>{{course.Name}}</mat-card-title>
+        </mat-card-title-group>
+      </mat-card-header>
+      <mat-card-content routerLink="/course-content">
+        <img mat-card-lg-image src={{course.ImagePath}}>
+      </mat-card-content>
+      <mat-card-content>
+        <b>Type:</b>{{course.Type}}
+      </mat-card-content>
+      <mat-card-content>
+        <b>Eligibility:</b>{{course.Eligibility}}
+      </mat-card-content>
+      <mat-card-content>
+        <b>Batch:</b>{{course.Batch}}
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

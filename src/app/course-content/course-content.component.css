@@ -1,0 +1,32 @@
+.course-content-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: left;
+    justify-content: left;  
+  }
+  .course-content-col {
+    max-width: 100%;
+    margin-bottom: 8px;
+    justify-content: left;
+    align-items: left;
+    margin-top: 2%;
+    margin-left: 8% 
+  }
+  .example-container {
+    width: 100%;
+    height: 100%;
+    /* border: 1px solid rgba(0, 0, 0, 0.5); */
+  }
+  
+  .example-sidenav-content {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .example-sidenav {
+    padding: 20px;
+  }
+  

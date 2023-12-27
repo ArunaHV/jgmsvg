@@ -1,0 +1,51 @@
+<div mat-dialog-title>
+  <h1>Enter Course Details</h1>
+</div>
+<form [formGroup]="courseForm" (ngSubmit)="onFormSubmit()">
+  <div mat-dialog-content>
+    <table class="width" cellspacing="0">
+      <tr>
+        <td>
+          <mat-form-field class="width">
+            <mat-label>Course name</mat-label>
+            <input matInput placeholder="ex. Sumadvijaya" formControlName="courseName">
+          </mat-form-field>
+        </td>
+        <td>
+          <mat-form-field class="width">
+            <mat-label>Course Type</mat-label>
+            <mat-select formControlName="courseType">
+              <mat-option *ngFor="let courseType of Types" [value]="courseType.value" >
+                {{courseType.viewValue}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <mat-selection-list formControlName="ApplicableFor">
+            <mat-label>Applicable For</mat-label>
+            <mat-list-option *ngFor="let EligiblePerson of EligiblePersons" >
+              {{EligiblePerson}}
+            </mat-list-option>
+          </mat-selection-list>
+        </td>
+       <td>
+        <mat-selection-list formControlName="courseBatch">
+          <mat-label>Course Batch</mat-label>npm i json-server
+          <mat-list-option *ngFor="let Batch of Batches" >
+            {{Batch}}
+          </mat-list-option>
+        </mat-selection-list>
+       </td>
+      </tr>
+    </table> 
+  </div>
+  <div mat-dialog-actions class="action">
+    <button mat-raised-button type="submit">Cancel</button>
+    <button mat-raised-button>Save</button>
+  </div>
+</form>
+
+ 
