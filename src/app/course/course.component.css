@@ -1,0 +1,24 @@
+
+.card-container{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+}
+.course-card {
+  max-width: 100%;
+  margin-bottom: 8px;
+  justify-content: left;
+  align-items: Center;
+  max-width: 400px;
+  margin-top: 10px;
+}
+.add-course-class{
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 8%;
+  margin-top: 2%;
+  margin-bottom: 2%;
+}

@@ -1,0 +1,100 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+
+  "language":[
+    {
+      "name": "Kannada",
+      "id": 1
+    },
+    {
+      "name": "English",
+      "id": 2
+    },
+    {
+      "name": "Hindi",
+      "id": 3
+    },
+    {
+      "name": "Telugu",
+      "id": 4
+    }
+  ],
+
+  "sarga":[
+    {
+      "name": "Sarga1",
+      "id": 1
+    },
+    {
+      "name": "Sarga2",
+      "id": 2
+    },
+    {
+      "name": "Sarga3",
+      "id": 3
+    },
+    {
+      "name": "Sarga4",
+      "id": 4
+    }
+  ],
+   
+  "shloka":[
+    {
+      "Number": 1,
+      "sargaId": 1
+    },
+    {
+      "Number": 2,
+      "sargaId": 1
+    },
+    {
+      "Number": 3,
+      "sargaId": 1
+    },
+    {
+      "Number": 4,
+      "sargaId": 1
+    },
+    {
+      "Number": 5,
+      "sargaId": 1
+    },
+    {
+      "Number": 1,
+      "sargaId": 2
+    },
+    {
+      "Number": 2,
+      "sargaId": 2
+    },
+    {
+      "Number": 3,
+      "sargaId": 2
+    },
+    {
+      "Number": 4,
+      "sargaId": 2
+    },
+    {
+      "Number": 5,
+      "sargaId": 2
+    }
+  ]
+}

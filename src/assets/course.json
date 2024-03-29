@@ -1,0 +1,58 @@
+[  
+  {  
+    "id":1,  
+    "Name": "SumadhVijaya",  
+    "Type": "Sanskrit Granthagulu",  
+    "Eligibility": "Purusha Only" ,
+    "Batch":"Daily, Evening, Weekend"	,
+    "ImagePath": "../../assets/img/SumadVijaya.PNG"
+  },  
+  {  
+    "id": 2,  
+    "Name": "Teertha Prabhanda",  
+    "Type": "Sanskrit Granthagulu",  
+    "Eligibility": "Purusharu, Mahileyaru" ,
+    "Batch":"Daily, Evening"  ,
+    "ImagePath": "../../assets/img/ThirthaPrabandha.PNG"
+  },  
+  {  
+   "id": 3,  
+    "Name": "Sanskrit Vyakarana",  
+    "Type": "Sanskrit Grammer",  
+    "Eligibility": "Purusharu, Mahileyaru, Kids" ,
+    "Batch":"Daily Evening" ,
+    "ImagePath": "../../assets/img/Sanskrit Vyakarna.png"
+  }, 
+  {  
+    "id": 4,  
+    "Name": "Manya Sukta",  
+    "Type": "Veda",  
+    "Eligibility": "Purusharu Only" ,
+    "Batch":"Daily Morning",
+    "ImagePath": "../../assets/img/ManyaSuktya.png"
+  },  
+  {  
+    "id": 5,  
+    "Name": "Harikathamruta Sara",  
+    "Type": "Kannada Granthagulu",  
+    "Eligibility": "Purusha, Mahileyaru,Kids" ,
+    "Batch":"Daily Morning",
+    "ImagePath": "../../assets/img/Harikathamrutasara.PNG"
+  },  
+  {  
+    "id": 6,  
+    "Name": "Lakshmi Shobhane",  
+    "Type": "Kannada Granthagulu",  
+    "Eligibility": "Purusha, Mahileyaru,Kids",
+    "Batch":"Daily Noon",
+    "ImagePath": "../../assets/img/LaxmiShobhane.png"
+  } , 
+  {  
+    "id": 7,  
+    "Name": "Vedha",  
+    "Type": "Kannada Granthagulu",  
+    "Eligibility": "Purusha, Mahileyaru,Kids",
+    "Batch":"Daily Noon",
+    "ImagePath": "../../assets/img/LaxmiShobhane.png"
+  }  
+]  
