@@ -1,12 +1,14 @@
-<div class="course-content-container">
-    <table >
-        <tr>
-            <div class="course-content-col">
+<div class="course-content-col">
+    <mat-drawer-container class="example-container"> 
+      <mat-drawer-content>
+        <table>
+            <tr>
                 <td>
-                    <mat-form-field >
+                    <mat-form-field>
                         <mat-label>Language</mat-label>
-                        <mat-select>
-                            <mat-option *ngFor="let language of languageData" [value]="language.id"> {{language.name}}</mat-option>
+                        <mat-select (selectionChange)="onLanguageChange($event)">
+                            <mat-option *ngFor="let language of languageData" [value]="language.id">
+                                {{language.name}}</mat-option>
                         </mat-select>
                     </mat-form-field>
                 </td>
@@ -19,14 +21,136 @@
                     </mat-form-field>
                 </td>
                 <td>
-                    <mat-form-field >
+                    <mat-form-field>
                         <mat-label>Shloka</mat-label>
-                        <mat-select>
-                            <mat-option *ngFor="let shloka of shlokaData" [value]="shloka.Number"> {{shloka.Number}}</mat-option>
+                        <mat-select [(ngModel)]="selectedShloka" (ngModelChange)="onShlokaChange($event)">
+                            <mat-option *ngFor="let shloka of shlokaData" [value]="shloka.shloka_number">
+                                {{shloka.shloka_number}}
+                            </mat-option>
                         </mat-select>
                     </mat-form-field>
                 </td>
-            </div>
-        </tr>
-    </table>
+            </tr>
+            <ng-container *ngIf="selectedShloka">
+                <tr>
+                    <td>
+                        <p><strong>Play Shloka</strong></p>
+                    </td>
+                    <td>
+                        <audio controls style="width: 100%;">
+                            <source src="../../assets/Madvijaya/Sarga1/Shloka1.mp3" type="audio/ogg">
+                            <!-- <source src="./audio/horse.ogg" type="audio/mpeg"> -->
+                            Your browser does not support the audio element.
+                        </audio>
+                    </td>
+                    <td>
+                        <p><strong>Pada Cheda</strong></p>
+                        <tr>
+                            <ng-container *ngFor="let pada of getPadaArray()">
+                                <td style="cursor: pointer" (click)="toggleDrawer(pada.text)">{{pada.text}}</td>
+                            </ng-container>
+                        </tr>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        {{selectedShloka.selectedAttribute.shloka_smv_pada1_text}}
+                    </td>
+                    <td>
+                        <audio controls style="width: 100%;">
+                            <source src="../../assets/audio/sarga 1.mp3" type="audio/ogg">
+                            <!-- <source src="./audio/horse.ogg" type="audio/mpeg"> -->
+                            Your browser does not support the audio element.
+                        </audio>
+                    </td>
+                    <td>
+                        <b>Anvaya</b>
+                        <tr>
+                            <ng-container *ngFor="let anvaya of getAnvayaArray()">
+                                <td style="cursor: pointer" (click)="toggleDrawer(anvaya.text)">{{anvaya.text}}</td>
+                            </ng-container>
+                        </tr>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <mat-label>{{selectedShloka.selectedAttribute.shloka_smv_pada2_text}}</mat-label>
+                    </td>
+                    <td>
+                        <audio controls style="width: 100%;">
+                            <source src="../../assets/Madvijaya/Sarga1/Shloka1.mp3" type="audio/ogg">
+                            <!-- <source src="./audio/horse.ogg" type="audio/mpeg"> -->
+                            Your browser does not support the audio element.
+                        </audio>
+                    </td>
+                    <td>
+                        <mat-tab-group>
+                            <mat-tab label="vyakhyana_bhavaprakashika">
+                              <ng-container>{{ selectedShloka.selectedAttribute.vyakhyana_bhavaprakashika }}</ng-container>
+                            </mat-tab>
+                            <mat-tab label="vyakhyana_padarthadipikodbodhika">
+                              <ng-container>{{ selectedShloka.selectedAttribute.vyakhyana_padarthadipikodbodhika }}</ng-container>
+                            </mat-tab>
+                            <mat-tab label="vyakhyana_mandopakarini">
+                              <ng-container>{{ selectedShloka.selectedAttribute.vyakhyana_mandopakarini }}</ng-container>
+                            </mat-tab>
+                            <mat-tab label="Pata_Notes">
+                                <ng-container>{{ selectedShloka.selectedAttribute.Pata_Notes }}</ng-container>
+                            </mat-tab>
+                          </mat-tab-group>
+                          <b>Pada Artha</b>
+                          <tr>
+                              <ng-container>
+                                  <textarea matInput rows="4" [value]="concatenateText()" disabled></textarea>
+                              </ng-container>
+                          </tr>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <mat-label>{{selectedShloka.selectedAttribute.shloka_smv_pada3_text}}</mat-label>
+                    </td>
+                    <!-- <td>
+                        <mat-label>narayaNaya akhila karaNaya</mat-label>
+                    </td> -->
+                    <td>
+                        <audio controls style="width: 100%;">
+                            <source src="../../assets/audio/sarga 1.mp3" type="audio/ogg">
+                            <!-- <source src="./audio/horse.ogg" type="audio/mpeg"> -->
+                            Your browser does not support the audio element.
+                        </audio>
+                    </td>
+                    <td>
+                        <b>vyakaranavishesha</b>
+                        <tr>
+                            {{ selectedShloka.selectedAttribute.vyakarana_vishesha }}
+                        </tr>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <mat-label>{{selectedShloka.selectedAttribute.shloka_smv_pada4_text}}</mat-label>
+                    </td>
+                    <td>
+                        <audio controls style="width: 100%;">
+                            <source src="../../assets/audio/sarga 1.mp3" type="audio/ogg">
+                            <!-- <source src="./audio/horse.ogg" type="audio/mpeg"> -->
+                            Your browser does not support the audio element.
+                        </audio>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                       
+                    </td>
+                </tr>
+                <mat-drawer position="end" #drawer>
+                    <ng-container>
+                        <p>{{ selectedPada }}</p>
+                    </ng-container>
+                </mat-drawer>  
+            </ng-container>
+        </table>
+</mat-drawer-content>
+</mat-drawer-container>
 </div>

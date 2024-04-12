@@ -26,6 +26,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { CourseContentComponent } from './course-content/course-content.component';
 import { HttpClientModule } from '@angular/common/http';
+import { MatTabsModule } from '@angular/material/tabs';
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,6 +52,7 @@ import { HttpClientModule } from '@angular/common/http';
     MatSelectModule,
     MatInputModule,
     MatListModule,
+    MatTabsModule,
     FormsModule,
     NgFor,
     ReactiveFormsModule,

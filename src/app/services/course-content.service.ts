@@ -16,7 +16,8 @@ export class CourseContentService {
   getSarga(): Observable<any> {
     return this._http.get('http://localhost:3000/sarga');
   }
-  getShloka( sargaId: any): Observable<any> {
-    return this._http.get('http://localhost:3000/shloka?sargaId=' + sargaId);
+  getShloka(): Observable<any> {
+    return this._http.get('http://localhost:3000/shloka');
   }
+
 }
