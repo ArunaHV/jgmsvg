@@ -75,14 +75,6 @@ export class CourseContentComponent implements OnInit {
            selectedAttribute: selectedAttribute
          };
   
-    //     // Check if padacheda is null in selectedAttribute, if yes, use the default attribute
-    //     if (selectedAttribute.padacheda === null) {
-    //       const defaultAttribute = this.selectedShloka.shloka_smv_tr_attributes.find((attribute: any) => attribute.isdefault === true);
-          
-    //       if (defaultAttribute) {
-    //         this.selectedShloka.selectedAttribute.padacheda = defaultAttribute.padacheda;
-    //       }
-    //     }
       }
     }
   }
@@ -110,6 +102,36 @@ export class CourseContentComponent implements OnInit {
       this.selectedShloka.selectedAttribute.pratipada_artha = this.defaultShloka.pratipada_artha;
     const padachedaArray = this.selectedShloka.selectedAttribute?.pratipada_artha.split('#');
     return padachedaArray.map((pada: string, index: number) => ({ id: index + 1, text: pada.trim() }));
+  }
+
+  getBhavaprakashika(): string {
+    if(this.selectedShloka.selectedAttribute?.vyakhyana_bhavaprakashika === null)
+       this.selectedShloka.selectedAttribute.vyakhyana_bhavaprakashika = this.defaultShloka.vyakhyana_bhavaprakashika;
+    return this.selectedShloka.selectedAttribute.vyakhyana_bhavaprakashika;
+  }
+  
+  getPadarthadipikodbodhika(): string {
+    if(this.selectedShloka.selectedAttribute?.vyakhyana_padarthadipikodbodhika === null)
+       this.selectedShloka.selectedAttribute.vyakhyana_padarthadipikodbodhika = this.defaultShloka.vyakhyana_padarthadipikodbodhika;
+    return this.selectedShloka.selectedAttribute.vyakhyana_padarthadipikodbodhika;
+  }
+
+  getMandopakarini(): string {
+    if(this.selectedShloka.selectedAttribute?.vyakhyana_mandopakarini === null)
+       this.selectedShloka.selectedAttribute.vyakhyana_mandopakarini = this.defaultShloka.vyakhyana_mandopakarini;
+    return this.selectedShloka.selectedAttribute.vyakhyana_mandopakarini;
+  }
+  
+  getPatanotes(): string {
+    if(this.selectedShloka.selectedAttribute?.Pata_Notes === null)
+       this.selectedShloka.selectedAttribute.Pata_Notes = this.defaultShloka.Pata_Notes;
+    return this.selectedShloka.selectedAttribute.Pata_Notes;
+  }
+
+  getTatparya(): string {
+    if(this.selectedShloka.selectedAttribute?.tatparya === null)
+       this.selectedShloka.selectedAttribute.tatparya = this.defaultShloka.tatparya;
+    return this.selectedShloka.selectedAttribute.tatparya;
   }
 
   public getJSON(): Observable<any> {

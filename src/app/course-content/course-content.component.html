@@ -86,16 +86,16 @@
                     <td>
                         <mat-tab-group>
                             <mat-tab label="vyakhyana_bhavaprakashika">
-                              <ng-container>{{ selectedShloka.selectedAttribute.vyakhyana_bhavaprakashika }}</ng-container>
+                              <ng-container>{{ getBhavaprakashika() }}</ng-container>
                             </mat-tab>
                             <mat-tab label="vyakhyana_padarthadipikodbodhika">
-                              <ng-container>{{ selectedShloka.selectedAttribute.vyakhyana_padarthadipikodbodhika }}</ng-container>
+                              <ng-container>{{ getPadarthadipikodbodhika() }}</ng-container>
                             </mat-tab>
                             <mat-tab label="vyakhyana_mandopakarini">
-                              <ng-container>{{ selectedShloka.selectedAttribute.vyakhyana_mandopakarini }}</ng-container>
+                              <ng-container>{{ getMandopakarini() }}</ng-container>
                             </mat-tab>
                             <mat-tab label="Pata_Notes">
-                                <ng-container>{{ selectedShloka.selectedAttribute.Pata_Notes }}</ng-container>
+                                <ng-container>{{ getPatanotes() }}</ng-container>
                             </mat-tab>
                           </mat-tab-group>
                           <b>Pada Artha</b>
@@ -137,6 +137,12 @@
                             <!-- <source src="./audio/horse.ogg" type="audio/mpeg"> -->
                             Your browser does not support the audio element.
                         </audio>
+                    </td>
+                    <td>
+                        <b>Tatparya</b>
+                        <tr>
+                            {{ getTatparya() }}
+                        </tr>
                     </td>
                 </tr>
                 <tr>
