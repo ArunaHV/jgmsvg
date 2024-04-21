@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CourseContentService } from '../services/course-content.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-course-content',
@@ -15,6 +16,7 @@ export class CourseContentComponent implements OnInit {
   shlokaData: any;
   selectedLanguage: any;
   selectedShloka: any;
+  defaultShloka: any;
   selectedPada: string | null = null;
   jsonData: any;
   shlokaSmvTrAttributes: any;
@@ -27,6 +29,7 @@ export class CourseContentComponent implements OnInit {
     this.getLanguage();
     this.getSarga();
     this.getShloka();
+    
   }
   
   getLanguage(){
@@ -41,6 +44,7 @@ export class CourseContentComponent implements OnInit {
   onLanguageChange(ob: { value: any; }) {
     this.selectedShloka = null;
     this.selectedLanguage = ob.value;
+    this.getSarga();
     this.getShloka();
   }
 
@@ -58,68 +62,84 @@ export class CourseContentComponent implements OnInit {
   }
 
   onShlokaChange(ob: { value: any; }) {
-    this.selectedShloka = this.shlokaData.find((shloka: { shloka_number: any; }) => shloka.shloka_number === ob);
-  
+    this.selectedShloka = this.shlokaData.find((shloka: { shloka_smv_id: any; }) => shloka.shloka_smv_id === ob);
+    
     if (this.selectedShloka) {
       // Assuming shloka_smv_tr_attributes is an array within selectedShloka
-      const selectedAttribute = this.selectedShloka.shloka_smv_tr_attributes.find((attribute: any) => attribute.shloka_smv_tr_attribute_id === this.selectedLanguage);
+      const selectedAttribute = this.selectedShloka;
+       // Find the default shloka within jsonData[0]
+      this.defaultShloka = this.getDefaultAttribute()
+       if (selectedAttribute) {
+         this.selectedShloka = {
+           ...this.selectedShloka,
+           selectedAttribute: selectedAttribute
+         };
   
-      if (selectedAttribute) {
-        this.selectedShloka = {
-          ...this.selectedShloka,
-          selectedAttribute: selectedAttribute
-        };
-  
-        // Check if padacheda is null in selectedAttribute, if yes, use the default attribute
-        if (selectedAttribute.padacheda === null) {
-          const defaultAttribute = this.selectedShloka.shloka_smv_tr_attributes.find((attribute: any) => attribute.isdefault === true);
+    //     // Check if padacheda is null in selectedAttribute, if yes, use the default attribute
+    //     if (selectedAttribute.padacheda === null) {
+    //       const defaultAttribute = this.selectedShloka.shloka_smv_tr_attributes.find((attribute: any) => attribute.isdefault === true);
           
-          if (defaultAttribute) {
-            this.selectedShloka.selectedAttribute.padacheda = defaultAttribute.padacheda;
-          }
-        }
+    //       if (defaultAttribute) {
+    //         this.selectedShloka.selectedAttribute.padacheda = defaultAttribute.padacheda;
+    //       }
+    //     }
       }
     }
   }
   
-  getShlokaText(shlokaId: any): string {
+  getShlokaText(shlokaId: number): string {
     const selectedShloka = this.shlokaData.find((shloka: { shloka_smv_id: any; }) => shloka.shloka_smv_id === shlokaId);
     return selectedShloka ? selectedShloka.shloka_text : '';
   }
   
   getPadaArray(): { id: number, text: string }[] {
+    if(this.selectedShloka.selectedAttribute?.padacheda === null)
+      this.selectedShloka.selectedAttribute.padacheda = this.defaultShloka.padacheda;
     const padachedaArray = this.selectedShloka.selectedAttribute?.padacheda.split(';');
     return padachedaArray.map((pada: string, index: number) => ({ id: index + 1, text: pada.trim() }));
   }
   
   getAnvayaArray(): { id: number, text: string }[] {
+    if(this.selectedShloka.selectedAttribute?.anvaya === null)
+      this.selectedShloka.selectedAttribute.anvaya = this.defaultShloka.anvaya;
     const padachedaArray = this.selectedShloka.selectedAttribute?.anvaya.split(';');
     return padachedaArray.map((pada: string, index: number) => ({ id: index + 1, text: pada.trim() }));
   }
   getPadaArthaArray(): { id: number, text: string }[] {
+    if(this.selectedShloka.selectedAttribute?.pratipada_artha === null)
+      this.selectedShloka.selectedAttribute.pratipada_artha = this.defaultShloka.pratipada_artha;
     const padachedaArray = this.selectedShloka.selectedAttribute?.pratipada_artha.split('#');
     return padachedaArray.map((pada: string, index: number) => ({ id: index + 1, text: pada.trim() }));
   }
 
-  getShloka(){
-    this._courseContentService.getShloka().subscribe({
+  public getJSON(): Observable<any> {
+    return this._courseContentService.getShloka();
+  }
+  public getShloka(){
+    this.getJSON().subscribe({
       next:(res) => {
-          this.shlokaData = res;
-          this.shlokaData = this.getShlokasByLanguage();
+
+          this.getShlokasByLanguage();
       },
       error: console.log,
     })
   }
 
   public getShlokasByLanguage(){
-    this.shlokaData.subscribe((data: { [x: string]: any; }) => {
-      this.jsonData = data['shloka'];
+    this.getJSON().subscribe(data => {
+      this.jsonData = data;
       this.shlokaSmvTrAttributes = this.jsonData[0]['shloka_smv_tr_attributes'];
-      this.shlokaSmvTrAttributesByLanguage = this.shlokaSmvTrAttributes.filter((l : any) =>{
-        return l.language_code_id == this.selectedLanguage && l.shloka_smv_id == this.selectedSarga
+      this.shlokaData = this.shlokaSmvTrAttributes.filter((l : any) =>{
+        return l.language_code_id == this.selectedLanguage 
       })
     });
   }
+
+  // Define a function to get the default attribute of a shloka by its ID
+getDefaultAttribute(): any {
+  // Find the shloka by its ID
+  return this.shlokaSmvTrAttributes.find((shloka: any) => shloka.isdefault === true) || null;
+}
   concatenateText(): string {
     return this.getPadaArthaArray().map(item => item.text).join('\n');
 }

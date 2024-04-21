@@ -24,8 +24,8 @@
                     <mat-form-field>
                         <mat-label>Shloka</mat-label>
                         <mat-select [(ngModel)]="selectedShloka" (ngModelChange)="onShlokaChange($event)">
-                            <mat-option *ngFor="let shloka of shlokaData" [value]="shloka.shloka_number">
-                                {{shloka.shloka_number}}
+                            <mat-option *ngFor="let shloka of shlokaData" [value]="shloka.shloka_smv_id">
+                                {{shloka.shloka_smv_id}}
                             </mat-option>
                         </mat-select>
                     </mat-form-field>
